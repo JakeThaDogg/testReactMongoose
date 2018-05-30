@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Input, Button, Grid } from 'semantic-ui-react'
+import axios from 'axios'
 import '../css/Register.css'
 
 export default class Register extends Component {
@@ -54,7 +55,23 @@ export default class Register extends Component {
 
   submitHandle (e) {
     e.preventDefault()
-
+    if (this.state.pass === this.state.passConf) {
+      axios({
+        method: 'post',
+        url: 'http://localhost:2018/register',
+        data: {
+          email: this.state.email,
+          last_name: this.state.nom,
+          first_name: this.state.prenom,
+          age: this.state.age,
+          postal_code: this.state.code,
+          password: this.state.pass
+        }
+      })
+      console.log(this.state)
+    } else {
+      alert('password ain\'t the same bitch')
+    }
   }
 
   render () {

@@ -1,11 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user-example');
+let cors = require('cors')
+
+
+router.use(cors())
 
 router.get('/', (req, res) => {
     console.log('Ceci est un get')
     res.send('Biiiiite')
 });
+
 //Route to login user into session
 router.post('/login', (req, res) => {
     console.log('Ceci est un post')
@@ -59,4 +64,3 @@ router.get('/logout', (req, res) => {
 });
 
 module.exports = router;
-
