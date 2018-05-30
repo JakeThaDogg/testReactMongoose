@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch, NavLink } from 'react-router-dom'
-import logo from '../logo.svg'
+import logo from '../ORhXMf2.svg'
 import '../css/App.css'
 import Register from './Register'
+import Compte from './Compte'
 import Login from './Login'
 
 class App extends Component {
@@ -20,7 +21,11 @@ class App extends Component {
           <NavLink to='/login' className='link'>
             Login
           </NavLink>
+          <NavLink to='/moncompte' className='link'>
+          Mon Compte
+          </NavLink>
           <Switch>
+            <Route path='/moncompte' component={Compte} />
             <Route path='/register' component={Register} />
             <Route path='/login' component={Login} />
           </Switch>
