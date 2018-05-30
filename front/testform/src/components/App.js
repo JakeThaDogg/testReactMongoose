@@ -21,11 +21,11 @@ class App extends Component {
           <NavLink to='/login' className='link'>
             Login
           </NavLink>
-          <NavLink to='/moncompte' className='link'>
+          <NavLink to='/profile' className='link'>
           Mon Compte
           </NavLink>
           <Switch>
-            <Route path='/moncompte' component={Compte} />
+            <Route path='/profile' component={Compte} />
             <Route path='/register' component={Register} />
             <Route path='/login' component={Login} />
           </Switch>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Input, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 import '../css/Login.css'
 
 export default class Login extends Component {
@@ -12,6 +13,7 @@ export default class Login extends Component {
     }
     this.mailChange = this.mailChange.bind(this)
     this.passChange = this.passChange.bind(this)
+    this.logSubmit = this.logSubmit.bind(this)
   }
 
   mailChange (e) {
@@ -22,10 +24,22 @@ export default class Login extends Component {
     this.setState({pass: e.target.value})
   }
 
+  logSubmit (e) {
+  //  e.preventDefault()
+    axios({
+      method: 'post',
+      url: 'http://localhost:2018/login',
+      data: {
+        email: this.state.email,
+        password: this.state.password
+      }
+    })
+  }
+
   render () {
     return (
       <div>
-        <form>
+        <form onSubmit={this.logSubmit}>
           <span>Email: </span><Input onChange={this.mailChange} placeholder='Email' className='input' />
           <br />
           <span> Mot de Passe:</span><Input onChange={this.passChange} placeholder='Mot de passe' />
