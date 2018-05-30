@@ -5,7 +5,7 @@ var CategoriesSchema = new mongoose.Schema({
     type: String
   },
   image: {
-    type: String
+    data: Buffer, contentType: String
   },
   parent: {
     type: String

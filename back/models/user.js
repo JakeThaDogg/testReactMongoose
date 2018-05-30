@@ -14,7 +14,7 @@ var UserSchema = new mongoose.Schema({
     type: String
   },
   avatar: {
-    type: String
+    data: Buffer, contentType: String
   },
   birthday_date: {
     type: Date

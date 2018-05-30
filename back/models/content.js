@@ -9,7 +9,7 @@ var ContentSchema = new mongoose.Schema({
     unique: true
   },
   short_image: {
-    type: String
+    data: Buffer, contentType: String
   },
   short_description: {
     type: String
